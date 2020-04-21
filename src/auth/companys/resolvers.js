@@ -5,20 +5,17 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		allUsers: (_) =>
-			getRequest(endpoint.reservas.user, ''),
-		userById: (_, { id }) =>
+		allCompanys: (_) =>
+			getRequest(URL, ''),
+		companyById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
-		ping: (_) => {
-			return "Pong"
-		},
 	},
 	Mutation: {
-		createUser: (_, { user }) =>
-			generalRequest(`${URL}`, 'POST', user),
-		updateUser: (_, { id, user }) =>
-			generalRequest(`${URL}/${id}`, 'PUT', user),
-		deleteUser: (_, { id }) =>
+		createCompany: (_, { company }) =>
+			generalRequest(`${URL}`, 'POST', company  ),
+		updateCompany: (_, { id, company  }) =>
+			generalRequest(`${URL}/${id}`, 'PUT', company ),
+		deleteCompany: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'DELETE')
 	}
 };
