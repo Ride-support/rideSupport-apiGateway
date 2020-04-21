@@ -8,9 +8,9 @@ import {
 	usersMutations,
 	usersQueries,
 	usersTypeDef
-} from './auth/users/typeDefs';
+} from './auth/get-services/typeDefs';
 
-import usersResolvers from './auth/users/resolvers';
+import usersResolvers from './auth/get-services/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
