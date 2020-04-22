@@ -1,4 +1,4 @@
-export const usersTypeDef = `
+export const gServicesTypeDef = `
 type Vehicle {
     id: Int!
     VehicleType_id: Int!
@@ -59,7 +59,7 @@ input ServiceTypeInput {
 
 `;
 
-export const usersQueries = `
+export const gServicesQueries = `
 
     allVehicles: [Vehicle]!
     vehicleById(id: Int!): Vehicle!
@@ -78,7 +78,7 @@ export const usersQueries = `
     serviceByType(id: Int!): [Service]!
 `;
 
-export const usersMutations = `
+export const gServicesMutations = `
     createVehicle(vehicle: VehicleInput!): Vehicle!
     updateVehicle(id: Int!, vehicle: VehicleInput!): Vehicle!
     deleteVehicle(id: Int!): Int
