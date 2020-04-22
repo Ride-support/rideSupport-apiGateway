@@ -8,9 +8,9 @@ import {
 	carsMutations,
 	carsQueries,
 	carsTypeDef
-} from './auth/users/typeDefs';
+} from './cars/typeDefs';
 
-import carResolvers from './auth/users/resolvers';
+import carResolvers from './cars/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(

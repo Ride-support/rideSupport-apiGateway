@@ -1,22 +1,29 @@
 import { generalRequest, getRequest } from '../../utilities';
-import { url, port, entryPoint } from './server';
+import { url, port, entryPoint, endpoint } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		allCars: (_) =>
-			getRequest(URL, ''),
-		carByPlates: (_, { platesNumber }) =>
-			generalRequest(`${URL}/${plateNumber}`, 'GET'),
+		allUsers: (_) =>
+			getRequest(endpoint.reservas.user, ''), //
+		userById: (_, { id }) =>
+			generalRequest(`${endpoint.reservas.user}/${id}`, 'GET'),
+		reservaById:(_, { id }) =>
+			generalRequest(`${endpoint.reservas.user}/${id}/reservas`, 'GET'),
+		ping: (_) => {
+			return "Pong"
+		},
 	},
 	Mutation: {
-		createCar: (_, { car }) =>
-			generalRequest(`${URL}`, 'POST', car),
-		updateCar: (_, { plateNumber, car }) =>
-			generalRequest(`${URL}/${plateNumber}`, 'PUT', car),
-		deleteCar: (_, { plateNumber }) =>
-			generalRequest(`${URL}/${plateNumber}`, 'DELETE')
+		createUser: (_, { user }) =>
+			generalRequest(`${endpoint.reservas.user}`, 'POST', user),
+		updateUser: (_, { id, user }) =>
+			generalRequest(`${endpoint.reservas.user}/${id}/`, 'PUT', user),
+		deleteUser: (_, { id }) =>
+			generalRequest(`${endpoint.reservas.user}/${id}/`, 'DELETE'),
+		createReserva:  (_, {id, reserva}) =>
+			generalRequest(`${endpoint.reservas.user}/${id}/reservas`, 'POST', reserva)
 	}
 };
 
