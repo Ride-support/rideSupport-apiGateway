@@ -1,2 +1,0 @@
-# rideSupport-apiGateway
-APiGateway
