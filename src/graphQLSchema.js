@@ -16,23 +16,33 @@ import {
 	servicesTypeDef
 } from './services/typeDefs';
 
+import {
+  mapMutations,
+	mapQueries,
+	mapTypeDef
+} from './map/coordinate/typeDefs';
+
 import usersResolvers from './auth/users/resolvers';
 import servicesResolvers from './services/resolvers';
+import mapResolvers from './map/coordinate/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		servicesTypeDef,
+		mapTypeDef,
 		usersTypeDef
 	],
 	[
 		usersQueries,
+		mapQueries,
 		servicesQueries
 	],
 	[
 		usersMutations,
-		servicesMutations
+		servicesMutations,
+		mapMutations
 	]
 );
 
@@ -42,7 +52,8 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		servicesResolvers,
+		mapResolvers,
 		usersResolvers
-	)
+		)
 });
 
