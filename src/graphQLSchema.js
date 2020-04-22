@@ -5,10 +5,10 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeSchemas } from './utilities';
 
 import {
-	usersMutations,
-	usersQueries,
-	usersTypeDef
-} from './auth/users/typeDefs';
+	carsMutations,
+	carsQueries,
+	carsTypeDef
+} from './cars/typeDefs';
 
 import {
 	driversMutations,
@@ -39,27 +39,32 @@ import servicesResolvers from './services/resolvers';
 import mapResolvers from './map/coordinate/resolvers';
 import driversResolvers from './auth/drivers/resolvers';
 import companysResolvers from './auth/companys/resolvers';
+import carResolvers from './cars/resolvers';
+
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		companysTypeDef,
+		carsTypeDef,
+ 		companysTypeDef,
 		driversTypeDef,
 		servicesTypeDef,
 		mapTypeDef,
-	   	usersTypeDef
+   	usersTypeDef
 
 	],
 	[
-		companysQueries,
+		carsQueries,
+ 		companysQueries,
 		driversQueries,
 		usersQueries,
 		mapQueries,
 		servicesQueries
-	
+
 	],
 	[
+		carsMutations,
 		companysMutations,
 		driversMutations,
 		usersMutations,
@@ -73,10 +78,12 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
+		carResolvers,
 		companysResolvers,
 		driversResolvers,
 		servicesResolvers,
 		mapResolvers,
 		usersResolvers
+    )
 });
 
