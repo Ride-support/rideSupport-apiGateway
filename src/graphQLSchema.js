@@ -10,19 +10,66 @@ import {
 	carsTypeDef
 } from './cars/typeDefs';
 
+import {
+	driversMutations,
+	driversQueries,
+	driversTypeDef
+} from './auth/drivers/typeDefs';
+
+import {
+	servicesMutations,
+	servicesQueries,
+	servicesTypeDef
+} from './services/typeDefs';
+
+import {
+  mapMutations,
+	mapQueries,
+	mapTypeDef
+} from './map/coordinate/typeDefs';
+
+import {
+	companysMutations,
+	companysQueries,
+	companysTypeDef
+} from './auth/companys/typeDefs';
+
+import usersResolvers from './auth/users/resolvers';
+import servicesResolvers from './services/resolvers';
+import mapResolvers from './map/coordinate/resolvers';
+import driversResolvers from './auth/drivers/resolvers';
+import companysResolvers from './auth/companys/resolvers';
 import carResolvers from './cars/resolvers';
+
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		carsTypeDef
+		carsTypeDef,
+ 		companysTypeDef,
+		driversTypeDef,
+		servicesTypeDef,
+		mapTypeDef,
+   	usersTypeDef
+
 	],
 	[
-		carsQueries
+		carsQueries,
+ 		companysQueries,
+		driversQueries,
+		usersQueries,
+		mapQueries,
+		servicesQueries
+
 	],
 	[
-		carsMutations
+		carsMutations,
+		companysMutations,
+		driversMutations,
+		usersMutations,
+		servicesMutations,
+		mapMutations
 	]
 );
 
@@ -31,6 +78,12 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		carResolvers
-	)
+		carResolvers,
+		companysResolvers,
+		driversResolvers,
+		servicesResolvers,
+		mapResolvers,
+		usersResolvers
+    )
 });
+
