@@ -20,5 +20,6 @@ services:
       AUTH_COMPANYS_URL: '172.17.0.1'
       AUTH_COMPANYS_PORT: '4005'
       AUTH_COMPANYS_ENTRY: 'api/company'
+
     ports:
       - '5000:5000'
