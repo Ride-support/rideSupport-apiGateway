@@ -23,12 +23,7 @@ input ReservaInput{
     lugarServicio: String!
 }
 
-input ServiceInput {
-    tipoServicio: String!
-    fechaServicio: String!
-    horaServicio: String!
-    lugarServicio: String!
-}`;
+`;
 
 export const usersQueries = `
     allUsers: [User]
