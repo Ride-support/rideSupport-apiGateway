@@ -6,20 +6,24 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 const resolvers = {
 	Query: {
 		allUsers: (_) =>
-			getRequest(endpoint.reservas.user, ''),
+			getRequest(endpoint.reservas.user, ''), //
 		userById: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'GET'),
+			generalRequest(`${endpoint.reservas.user}/${id}`, 'GET'),
+		reservaById:(_, { id }) =>
+			generalRequest(`${endpoint.reservas.user}/${id}/reservas`, 'GET'),
 		ping: (_) => {
 			return "Pong"
 		},
 	},
 	Mutation: {
 		createUser: (_, { user }) =>
-			generalRequest(`${URL}`, 'POST', user),
+			generalRequest(`${endpoint.reservas.user}`, 'POST', user),
 		updateUser: (_, { id, user }) =>
-			generalRequest(`${URL}/${id}`, 'PUT', user),
+			generalRequest(`${endpoint.reservas.user}/${id}/`, 'PUT', user),
 		deleteUser: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'DELETE')
+			generalRequest(`${endpoint.reservas.user}/${id}/`, 'DELETE'),
+		createReserva:  (_, {id, reserva}) =>
+			generalRequest(`${endpoint.reservas.user}/${id}/reservas`, 'POST', reserva)
 	}
 };
 
