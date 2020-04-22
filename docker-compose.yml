@@ -11,6 +11,11 @@ services:
       AUTH_DRIVERS_URL: '172.17.0.1'
       AUTH_DRIVERS_PORT: '4006'
       AUTH_DRIVERS_ENTRY: 'api/driver'
-
-      ports:
+      SERVICES_URL: '172.17.0.1'
+      SERVICES_PORT: '4005'
+      SERVICES_COMPANYS_ENTRY: 'api/company'
+      MAPS_URL: '35.224.135.194'
+      MAPS_PORT: '4003'
+      MAPS_USERS_ENTRY: 'coordinate'
+    ports:
       - '5000:5000'
