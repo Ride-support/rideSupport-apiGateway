@@ -78,6 +78,5 @@ export default makeExecutableSchema({
 		servicesResolvers,
 		mapResolvers,
 		usersResolvers
-		)
 });
 
