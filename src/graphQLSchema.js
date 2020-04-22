@@ -16,13 +16,27 @@ import companysResolvers from './auth/companys/resolvers';
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		companysTypeDef
+		companysTypeDef,
+		driversTypeDef,
+		servicesTypeDef,
+		mapTypeDef,
+	   	usersTypeDef
+
 	],
 	[
-		companysQueries
+		companysQueries,
+		driversQueries,
+		usersQueries,
+		mapQueries,
+		servicesQueries
+	
 	],
 	[
-		companysMutations
+		companysMutations,
+		driversMutations,
+		usersMutations,
+		servicesMutations,
+		mapMutations
 	]
 );
 
@@ -31,6 +45,10 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		companysResolvers
+		companysResolvers,
+		driversResolvers,
+		servicesResolvers,
+		mapResolvers,
+		usersResolvers
 	)
 });
