@@ -11,6 +11,12 @@ import {
 } from './auth/users/typeDefs';
 
 import {
+	driversMutations,
+	driversQueries,
+	driversTypeDef
+} from './auth/drivers/typeDefs';
+
+import {
 	servicesMutations,
 	servicesQueries,
 	servicesTypeDef
@@ -25,22 +31,26 @@ import {
 import usersResolvers from './auth/users/resolvers';
 import servicesResolvers from './services/resolvers';
 import mapResolvers from './map/coordinate/resolvers';
+import driversResolvers from './auth/drivers/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		servicesTypeDef,
+		driversTypeDef,
+ 		servicesTypeDef,
 		mapTypeDef,
 		usersTypeDef
 	],
 	[
-		usersQueries,
+		driversQueries,
+    usersQueries,
 		mapQueries,
 		servicesQueries
 	],
 	[
-		usersMutations,
+		driversMutations,
+ 		usersMutations,
 		servicesMutations,
 		mapMutations
 	]
@@ -51,6 +61,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
+		driversResolvers,
 		servicesResolvers,
 		mapResolvers,
 		usersResolvers
