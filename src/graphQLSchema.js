@@ -10,20 +10,30 @@ import {
 	usersTypeDef
 } from './auth/users/typeDefs';
 
+import {
+	mapMutations,
+	mapQueries,
+	mapTypeDef
+} from './map/coordinate/typeDefs';
+
 import usersResolvers from './auth/users/resolvers';
+import mapResolvers from './map/coordinate/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		usersTypeDef
+		mapTypeDef,
+		usersTypeDef,
 	],
 	[
-		usersQueries
+		usersQueries,
+		mapQueries
 	],
 	[
-		usersMutations
-	]
+		usersMutations,
+		mapMutations
+	],
 );
 
 // Generate the schema object from your types definition.
@@ -31,6 +41,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
+		mapResolvers,
 		usersResolvers
-	)
+		)
 });
