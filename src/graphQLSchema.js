@@ -5,7 +5,13 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeSchemas } from './utilities';
 
 import {
-	usersMutations,
+	gServicesMutations,
+	gServicesQueries,
+	gServicesTypeDef
+} from './auth/get-services/typeDefs';
+
+import {
+  usersMutations,
 	usersQueries,
 	usersTypeDef
 }from './auth/users/typeDefs'
@@ -46,7 +52,7 @@ import mapResolvers from './map/coordinate/resolvers';
 import driversResolvers from './auth/drivers/resolvers';
 import companysResolvers from './auth/companys/resolvers';
 import carResolvers from './cars/resolvers';
-
+import gServicesResolvers from './auth/get-services/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -57,8 +63,8 @@ const mergedTypeDefs = mergeSchemas(
 		driversTypeDef,
 		servicesTypeDef,
 		mapTypeDef,
-   		usersTypeDef
-
+   	usersTypeDef,
+    gServicesTypeDef
 	],
 	[
 		carsQueries,
@@ -66,7 +72,9 @@ const mergedTypeDefs = mergeSchemas(
 		driversQueries,
 		usersQueries,
 		mapQueries,
-		servicesQueries
+		servicesQueries,
+    gServicesQueries
+    
 
 	],
 	[
@@ -75,7 +83,8 @@ const mergedTypeDefs = mergeSchemas(
 		driversMutations,
 		usersMutations,
 		servicesMutations,
-		mapMutations
+		mapMutations,
+    gServicesMutations
 	]
 );
 
@@ -89,7 +98,8 @@ export default makeExecutableSchema({
 		driversResolvers,
 		servicesResolvers,
 		mapResolvers,
-		usersResolvers
+		usersResolvers,
+    gServicesResolvers
     )
 });
 
