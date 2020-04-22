@@ -5,6 +5,12 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeSchemas } from './utilities';
 
 import {
+	usersMutations,
+	usersQueries,
+	usersTypeDef
+}from './auth/users/typeDefs'
+
+import {
 	carsMutations,
 	carsQueries,
 	carsTypeDef
@@ -51,7 +57,7 @@ const mergedTypeDefs = mergeSchemas(
 		driversTypeDef,
 		servicesTypeDef,
 		mapTypeDef,
-   	usersTypeDef
+   		usersTypeDef
 
 	],
 	[
