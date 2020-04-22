@@ -1,25 +1,22 @@
 import { generalRequest, getRequest } from '../../utilities';
-import { url, port, entryPoint, endpoint } from './server';
+import { url, port, entryPoint } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		allUsers: (_) =>
-			getRequest(endpoint.reservas.user, ''),
-		userById: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'GET'),
-		ping: (_) => {
-			return "Pong"
-		},
+		allCars: (_) =>
+			getRequest(URL, ''),
+		carByPlates: (_, { platesNumber }) =>
+			generalRequest(`${URL}/${plateNumber}`, 'GET'),
 	},
 	Mutation: {
-		createUser: (_, { user }) =>
-			generalRequest(`${URL}`, 'POST', user),
-		updateUser: (_, { id, user }) =>
-			generalRequest(`${URL}/${id}`, 'PUT', user),
-		deleteUser: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'DELETE')
+		createCar: (_, { car }) =>
+			generalRequest(`${URL}`, 'POST', car),
+		updateCar: (_, { plateNumber, car }) =>
+			generalRequest(`${URL}/${plateNumber}`, 'PUT', car),
+		deleteCar: (_, { plateNumber }) =>
+			generalRequest(`${URL}/${plateNumber}`, 'DELETE')
 	}
 };
 

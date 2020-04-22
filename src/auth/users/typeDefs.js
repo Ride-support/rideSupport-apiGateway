@@ -1,36 +1,22 @@
-export const usersTypeDef = `
-type User {
-    _id: ID!
-    telefono: String!
-    nombre: String!
-    reserva: [Reserva]!
+export const carsTypeDef = `
+type Car {
+    plateNumber: String!
+    model: String!
+    brand: String!
 }
-type Reserva {
-    idServicio: ID!
-    tipoServicio: String!
-    fechaServicio: String!
-    horaServicio: String!
-    lugarServicio: String!
-}
-input UserInput {
-    telefono: String!
-    nombre: String!
-}
-input ServiceInput {
-    tipoServicio: String!
-    fechaServicio: String!
-    horaServicio: String!
-    lugarServicio: String!
+input CarInput {
+    plateNumber: String!
+    model: String!
+    brand: String!
 }`;
 
-export const usersQueries = `
-    allUsers: [User]
-    userById(id: Int!): User!
-    ping: String!
+export const carsQueries = `
+    allCars: [Car]!
+    carByPlates(plateNumber: String!):Car!
 `;
 
-export const usersMutations = `
-    createUser(user: UserInput!): User!
-    updateUser(id: Int!, user: UserInput!): User!
-    deleteUser(id: Int!): Int
+export const carsMutations = `
+    createCar(car: CarInput!):Car!
+    updateCar(plateNumber: String!, car: CarInput!): Car!
+    deleteCar(plateNumber: String!): String
 `;
