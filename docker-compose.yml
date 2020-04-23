@@ -14,7 +14,7 @@ services:
       CARS_URL: '172.17.0.1'
       CARS_PORT: '4002'
       CARS_USERS_ENTRY: 'ridesupport-profileconfig-ms/resources/cars'
-      AUTH_DRIVERS_URL: '172.17.0.1'
+      AUTH_DRIVERS_URL: '3.94.116.27'
       AUTH_DRIVERS_PORT: '4006'
       AUTH_DRIVERS_ENTRY: 'api/driver'
       SERVICES_URL: '172.17.0.1'
