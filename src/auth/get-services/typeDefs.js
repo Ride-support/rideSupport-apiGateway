@@ -27,7 +27,7 @@ input VehicleTypeInput {
     name: String!
 }
 
-type Service {
+type ServiceGS {
     id: Int!
     ServiceType_id: Int!
     VehicleType_id: Int!
@@ -38,7 +38,7 @@ type Service {
     location: String!
 }
 
-input ServiceInput {
+input ServiceInputGS {
     ServiceType_id: Int!
     VehicleType_id: Int!
     description: String!
@@ -67,15 +67,15 @@ export const gServicesQueries = `
     allVehicleTypes: [VehicleType]!
     vehicleTypeById(id: Int!): VehicleType!
 
-    allServices: [Service]!
-    serviceById(id: Int!): Service!
+    allServices: [ServiceGS]!
+    serviceById(id: Int!): ServiceGS!
 
     allServiceTypes: [ServiceType]!
     serviceTypeById(id: Int!): ServiceType!
 
     vehicleByType(id: Int!): [Vehicle]!
-    serviceByVehicle(id: Int!): [Service]!
-    serviceByType(id: Int!): [Service]!
+    serviceByVehicle(id: Int!): [ServiceGS]!
+    serviceByType(id: Int!): [ServiceGS]!
 `;
 
 export const gServicesMutations = `
@@ -88,8 +88,8 @@ export const gServicesMutations = `
     updateVehicleType(id: Int!, vehicleType: VehicleTypeInput!): VehicleType!
     deleteVehicleType(id: Int!): Int
 
-    createService(service: ServiceInput!): Service!
-    updateService(id: Int!, service: ServiceInput!): Service!
+    createService(service: ServiceInputGS!): ServiceGS!
+    updateService(id: Int!, service: ServiceInputGS!): ServiceGS!
     deleteService(id: Int!): Int
 
     createServiceType(serviceType: ServiceTypeInput!): ServiceType!
