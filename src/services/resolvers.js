@@ -5,12 +5,12 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		allServices: (_) =>
+		allServicesM: (_) =>
 			generalRequest(`${URL}`, 'GET'),
 			//serviceById: (_, { id }) =>
 			//generalRequest(`${URL}/${id}`, 'GET'),
 			//generalRequest(`${URL}`, 'GET'),
-		serviceById: (_, { id }) =>
+		serviceByIdM: (_, { id }) =>
 			generalRequest(`${URL}/services/${id}`, 'GET'),
 		
 
@@ -22,11 +22,11 @@ const resolvers = {
 	},
 	
 	Mutation: {
-		createService: (_, { service }) =>
+		createServiceM: (_, { service }) =>
 			generalRequest(`${URL}`, 'POST', service),
-		updateService: (_, { service }) =>
+		updateServiceM: (_, { service }) =>
 			generalRequest(`${URL}`, 'PUT', service),
-		deleteService: (_, { id }) =>
+		deleteServiceM: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'DELETE')
 	}
 };
