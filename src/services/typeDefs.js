@@ -37,12 +37,12 @@ input ServiceInput {
 
 
 export const servicesQueries = `
-    allServices: [ServiceR]!
-    serviceById(id: Int!): ServiceR!
+    allServicesM: [ServiceR]!
+    serviceByIdM(id: Int!): ServiceR!
 `;
 
 export const servicesMutations = `
-    createService(service: ServiceInput!): Response!
-    updateService(service: ServiceInput!): Response!
-    deleteService(id: Int!): String!
+    createServiceM(service: ServiceInput!): Response!
+    updateServiceM(service: ServiceInput!): Response!
+    deleteServiceM(id: Int!): String!
 `;
