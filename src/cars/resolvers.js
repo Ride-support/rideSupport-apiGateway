@@ -7,7 +7,7 @@ const resolvers = {
 	Query: {
 		allCars: (_) =>
 			getRequest(URL, ''),
-		carByPlates: (_, { platesNumber }) =>
+		carByPlates: ({ platesNumber }) =>
 			generalRequest(`${URL}/${plateNumber}`, 'GET'),
 	},
 	Mutation: {
