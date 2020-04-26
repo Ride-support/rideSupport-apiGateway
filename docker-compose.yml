@@ -1,4 +1,4 @@
-version: '2.1'
+version: '2.0'
 services:
   sa-api:
     build: .
@@ -14,7 +14,7 @@ services:
       CARS_URL: '54.92.218.37'
       CARS_PORT: '4002'
       CARS_USERS_ENTRY: 'ridesupport-profileconfig-ms/resources/cars'
-      AUTH_DRIVERS_URL: '3.94.116.27'
+      AUTH_DRIVERS_URL: 'profile-driver'
       AUTH_DRIVERS_PORT: '4006'
       AUTH_DRIVERS_ENTRY: 'api/driver'
       SERVICES_URL: '54.197.36.68'
