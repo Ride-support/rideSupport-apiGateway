@@ -17,7 +17,12 @@ input CompanyInput {
     address: String!
     phone: Int!
     manager: String!
-}`;
+}
+input CompanyLogin {
+    email: String!
+    password: String!
+}
+`;
 
 
 export const companysQueries = `
@@ -28,4 +33,5 @@ export const companysMutations = `
     createCompany(company: CompanyInput!): Company!
     updateCompany(id: Int!, company: CompanyInput!): Company!
     deleteCompany(id: Int!): Int
+    loginCompany(company: CompanyLogin!): String!
 `;

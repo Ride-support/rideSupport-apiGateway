@@ -16,7 +16,9 @@ const resolvers = {
 		updateCompany: (_, { id, company  }) =>
 			generalRequest(`${URL}/${id}`, 'PUT', company ),
 		deleteCompany: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'DELETE')
+			generalRequest(`${URL}/${id}`, 'DELETE'),
+		loginCompany: (_,{company }) =>
+			generalRequest(`${URL}/login`, 'POST',company)
 	}
 };
 
