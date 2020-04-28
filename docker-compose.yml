@@ -14,7 +14,7 @@ services:
       CARS_URL: '54.92.218.37'
       CARS_PORT: '4002'
       CARS_USERS_ENTRY: 'ridesupport-profileconfig-ms/resources/cars'
-      AUTH_DRIVERS_URL: '3.94.116.27'
+      AUTH_DRIVERS_URL: '34.69.98.219'
       AUTH_DRIVERS_PORT: '4006'
       AUTH_DRIVERS_ENTRY: 'api/driver'
       SERVICES_URL: '54.197.36.68'
@@ -23,7 +23,7 @@ services:
       MAPS_URL: '35.224.135.194'
       MAPS_PORT: '4003'
       MAPS_USERS_ENTRY: 'coordinate'
-      AUTH_COMPANYS_URL: '34.205.157.239'
+      AUTH_COMPANYS_URL: '35.225.33.55'
       AUTH_COMPANYS_PORT: '4005'
       AUTH_COMPANYS_ENTRY: 'api/company'
     ports:
