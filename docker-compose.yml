@@ -17,7 +17,7 @@ services:
       AUTH_DRIVERS_URL: '3.94.116.27'
       AUTH_DRIVERS_PORT: '4006'
       AUTH_DRIVERS_ENTRY: 'api/driver'
-      SERVICES_URL: '54.197.36.68'
+      SERVICES_URL: '35.224.17.220'
       SERVICES_PORT: '4004'
       SERVICES_COMPANYS_ENTRY: 'services'
       MAPS_URL: '35.224.135.194'
