@@ -19,6 +19,10 @@ input DriverInput {
     address: String!
     phone: Int!
     vehicle: String!
+}
+input DriverLogin {
+    email: String!
+    password: String!
 }`;
 
 export const driversQueries = `
@@ -30,5 +34,6 @@ export const driversMutations = `
     createDriver(driver: DriverInput!): Driver!
     updateDriver(id: Int!, driver: DriverInput!): Driver!
     deleteDriver(id: Int!): Int
+    loginDriver(driver: DriverLogin!): String!
 `;
 

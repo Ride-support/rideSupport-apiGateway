@@ -1,29 +1,29 @@
 import { generalRequest, getRequest } from '../../utilities';
-import { url, port, entryPoint, endpoint } from './server';
+import { url, port, entryPoint } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
 		allUsers: (_) =>
-			getRequest(endpoint.reservas.user, ''), //
+			getRequest(URL, ''), //
 		userById: (_, { id }) =>
-			generalRequest(`${endpoint.reservas.user}/${id}`, 'GET'),
+			generalRequest(`${URL}/${id}`, 'GET'),
 		reservaById:(_, { id }) =>
-			generalRequest(`${endpoint.reservas.user}/${id}/reservas`, 'GET'),
+			generalRequest(`${URL}/${id}/reservas`, 'GET'),
 		ping: (_) => {
 			return "Pong"
 		},
 	},
 	Mutation: {
 		createUser: (_, { user }) =>
-			generalRequest(`${endpoint.reservas.user}`, 'POST', user),
+			generalRequest(`${URL}`, 'POST', user),
 		updateUser: (_, { id, user }) =>
-			generalRequest(`${endpoint.reservas.user}/${id}/`, 'PUT', user),
+			generalRequest(`${URL}/${id}/`, 'PUT', user),
 		deleteUser: (_, { id }) =>
-			generalRequest(`${endpoint.reservas.user}/${id}/`, 'DELETE'),
+			generalRequest(`${URL}/${id}/`, 'DELETE'),
 		createReserva:  (_, {id, reserva}) =>
-			generalRequest(`${endpoint.reservas.user}/${id}/reservas`, 'POST', reserva)
+			generalRequest(`${URL}/${id}/reservas`, 'POST', reserva)
 	}
 };
 
