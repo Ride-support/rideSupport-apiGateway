@@ -52,7 +52,7 @@ import mapResolvers from './map/coordinate/resolvers';
 import driversResolvers from './auth/drivers/resolvers';
 import companysResolvers from './auth/companys/resolvers';
 import carResolvers from './cars/resolvers';
-//import gServicesResolvers from './auth/get-services/resolvers';
+import gServicesResolvers from './auth/get-services/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -64,7 +64,7 @@ const mergedTypeDefs = mergeSchemas(
 		servicesTypeDef,
 		mapTypeDef,
   	 	usersTypeDef,
-//  	gServicesTypeDef
+  	gServicesTypeDef
 	],
 	[
 		carsQueries,
@@ -73,7 +73,7 @@ const mergedTypeDefs = mergeSchemas(
 		usersQueries,
 		mapQueries,
 		servicesQueries,
-//      gServicesQueries
+      gServicesQueries
     
 
 	],
@@ -84,7 +84,7 @@ const mergedTypeDefs = mergeSchemas(
 		usersMutations,
 		servicesMutations,
 		mapMutations,
-//      gServicesMutations
+      gServicesMutations
 	]
 );
 
@@ -99,7 +99,7 @@ export default makeExecutableSchema({
 		servicesResolvers,
 		mapResolvers,
 		usersResolvers,
-//      gServicesResolvers
+      gServicesResolvers
     )
 });
 

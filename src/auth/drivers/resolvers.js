@@ -16,7 +16,9 @@ const resolvers = {
 		updateDriver: (_, { id, driver }) =>
 			generalRequest(`${URL}/${id}`, 'PUT', driver ),
 		deleteDriver: (_, { id }) =>
-			generalRequest(`${URL}/${id}`, 'DELETE')
+			generalRequest(`${URL}/${id}`, 'DELETE'),
+		loginDriver: (_,{driver }) =>
+			generalRequest(`${URL}/login`, 'POST',driver)
 	}
 };
 
