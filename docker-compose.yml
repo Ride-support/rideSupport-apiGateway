@@ -11,7 +11,7 @@ services:
       AUTH_URL: 'reserva-ms'
       AUTH_PORT: '4001'
       AUTH_USERS_ENTRY: 'user'
-      CARS_URL: '54.92.218.37'
+      CARS_URL: '100.24.24.147'
       CARS_PORT: '4002'
       CARS_USERS_ENTRY: 'ridesupport-profileconfig-ms/resources/cars'
       AUTH_DRIVERS_URL: '34.69.98.219'
