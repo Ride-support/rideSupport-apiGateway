@@ -8,15 +8,9 @@ services:
       AUTH_GSERVICES_URL: '3.86.181.240'
       AUTH_GSERVICES_PORT: '4000'
       AUTH_GSERVICES_ENTRY: ''
-<<<<<<< HEAD
-      AUTH_URL: '172.17.0.1'
-      AUTH_PORT: '4000'
-      AUTH_USERS_ENTRY: 'sa-auth-ms/resources/users'
-=======
       AUTH_URL: 'reserva-ms'
       AUTH_PORT: '4001'
       AUTH_USERS_ENTRY: 'user'
->>>>>>> 71b35001b344b8f008236e092c79153c70247d17
       CARS_URL: '54.92.218.37'
       CARS_PORT: '4002'
       CARS_USERS_ENTRY: 'ridesupport-profileconfig-ms/resources/cars'
