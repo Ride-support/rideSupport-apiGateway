@@ -11,7 +11,7 @@ const resolvers = {
 			//generalRequest(`${URL}/${id}`, 'GET'),
 			//generalRequest(`${URL}`, 'GET'),
 		serviceByIdM: (_, { id }) =>
-			generalRequest(`${URL}/services/${id}`, 'GET'),
+			generalRequest(`${URL}/${id}`, 'GET'),
 		
 
 		//allServices: (_) =>
