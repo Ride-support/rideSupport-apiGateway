@@ -10,6 +10,12 @@ type Driver {
     phone: Int!
     vehicle: String!
 }
+type ResponseDriver{
+    token:String!,
+    message:String!,
+    driver:Driver!,
+    error:String!
+}
 input DriverInput {
     email: String!
     password: String!
@@ -31,9 +37,9 @@ export const driversQueries = `
 `;
 
 export const driversMutations = `
-    createDriver(driver: DriverInput!): Driver!
+    createDriver(driver: DriverInput!): ResponseDriver!
     updateDriver(id: Int!, driver: DriverInput!): Driver!
     deleteDriver(id: Int!): Int
-    loginDriver(driver: DriverLogin!): String!
+    loginDriver(driver: DriverLogin!): ResponseDriver!
 `;
 
