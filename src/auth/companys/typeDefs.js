@@ -9,6 +9,12 @@ type Company {
     phone: Int!
     manager: String!
 }
+type ResponseCompany{
+    token:String!,
+    message:String!,
+    company:Company!,
+    error:String!
+}
 input CompanyInput {
     email: String!
     password: String!
@@ -30,8 +36,8 @@ export const companysQueries = `
     companyById(id: Int!): Company!
 `;
 export const companysMutations = `
-    createCompany(company: CompanyInput!): Company!
+    createCompany(company: CompanyInput!): ResponseCompany!
     updateCompany(id: Int!, company: CompanyInput!): Company!
     deleteCompany(id: Int!): Int
-    loginCompany(company: CompanyLogin!): String!
+    loginCompany(company: CompanyLogin!): ResponseCompany!
 `;
